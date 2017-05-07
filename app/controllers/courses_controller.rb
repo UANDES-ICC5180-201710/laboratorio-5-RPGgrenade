@@ -61,6 +61,14 @@ class CoursesController < ApplicationController
     end
   end
 
+  def students
+    @course = Course.find(params[:course_id])
+  end
+
+  def assignments
+    @assignments = Assignment.where(course_id: params[:course_id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
